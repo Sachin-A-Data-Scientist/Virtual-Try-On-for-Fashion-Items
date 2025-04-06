@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual Try-On Fashion</title>
+</head>
+<body>
+    <h2>Virtual Try-On</h2>
+    <form action="/tryon" method="post" enctype="multipart/form-data">
+        <label for="category">Choose category:</label>
+        <select name="category" id="category" onchange="loadItems()">
+            <option value="shoes">Shoes</option>
+            <option value="clothes">Clothes</option>
+            <option value="jewelry">Jewelry</option>
+            <option value="accessories">Accessories</option>
+        </select>
+
+        <label for="item">Choose item:</label>
+        <select name="item" id="item">
+            <option value="shoe1.png">Shoe 1</option>
+            <option value="shoe2.png">Shoe 2</option>
+        </select>
+
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Try On</button>
+    </form>
+
+    <script>
+        const items = {
+            shoes: ["shoe1.png", "shoe2.png"],
+            clothes: ["shirt1.png", "shirt2.png"],
+            jewelry: ["necklace1.png", "earring1.png"],
+            accessories: ["sunglass1.png", "cap1.png"]
+        };
+
+        function loadItems() {
+            const category = document.getElementById("category").value;
+            const itemSelect = document.getElementById("item");
+            itemSelect.innerHTML = "";
+            items[category].forEach(i => {
+                const opt = document.createElement("option");
+                opt.value = i;
+                opt.innerText = i.split(".")[0];
+                itemSelect.appendChild(opt);
+            });
+        }
+    </script>
+</body>
+</html>
