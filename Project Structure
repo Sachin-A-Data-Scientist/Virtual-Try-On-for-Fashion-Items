@@ -1,0 +1,17 @@
+virtual-tryon/
+├── app/
+│   ├── static/
+│   │   ├── uploads/
+│   │   ├── shoes/
+│   │   ├── clothes/
+│   │   ├── jewelry/
+│   │   └── accessories/
+│   ├── templates/
+│   │   └── index.html
+│   ├── utils/
+│   │   ├── overlay.py
+│   │   └── detector.py
+│   ├── main.py
+│   └── config.py
+├── requirements.txt
+└── README.md
